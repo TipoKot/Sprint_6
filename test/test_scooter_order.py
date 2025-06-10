@@ -22,9 +22,9 @@ class TestScooterOrder:
         ("Анна", "Сидорова", "Санкт-Петербург, Невский пр. 100", "Сокольники", "+79270000000", "20.10.2023", "двое суток", "серая безысходность", "Не звоните — просто оставьте у двери."),
     ])
     def test_order_scooter(self, driver, name, surname, address, station, phone, date, period, color, comment):
-        driver.get(BASE_URL)
 
         main_page = MainPageScooter(driver)
+        main_page.open()
         main_page.click_order_button()
 
         WebDriverWait(driver, 10).until(
@@ -61,9 +61,9 @@ class TestScooterOrder:
         assert "Заказ оформлен" in order_confirmation.text, "Заказ не оформлен"
 
     def test_scooter_button_leads_to_main_page(self, driver):
-        driver.get(BASE_URL)
 
         main_page = MainPageScooter(driver)
+        main_page.open()
         main_page.click_order_button()
 
         scooter_order_page = OrderScooterPage(driver)
@@ -72,9 +72,9 @@ class TestScooterOrder:
         assert driver.current_url == BASE_URL, "Логотип Самоката не ведёт на главную страницу"
 
     def test_yandex_logo_redirects_to_dzen(self, driver):
-        driver.get(BASE_URL)
 
         main_page = MainPageScooter(driver)
+        main_page.open()
         main_page.click_yandex_logo()
 
         # Проверяем, что открылось новое окно и URL соответствует главной странице Дзена

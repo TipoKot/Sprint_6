@@ -1,5 +1,9 @@
 from selenium.webdriver.common.by import By
 
+# основные кнопки
+ORDER_BUTTON = (By.CLASS_NAME, "Button_Button__ra12g")
+YANDEX_LOGO = (By.CLASS_NAME, "Header_LogoYandex__3TSOI")
+
 # кнопки вопросов в секции "Вопрос-ответ"
 QUESTION_BUTTON_0 = (By.XPATH, "//div[@class='accordion__button' and text()='Сколько это стоит? И как оплатить?']")
 QUESTION_BUTTON_1 = (By.XPATH, "//div[@class='accordion__button' and text()='Хочу сразу несколько самокатов! Так можно?']")
